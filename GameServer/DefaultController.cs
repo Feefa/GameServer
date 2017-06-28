@@ -9,5 +9,10 @@ namespace GameServer
 {
     public class DefaultController : ControllerBase
     {
+        [HttpMethod("GET")]
+        public string Test()
+        {
+            return Request.ControllerName;
+        }
     }
 }

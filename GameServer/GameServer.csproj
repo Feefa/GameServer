@@ -108,6 +108,7 @@
   <ItemGroup>
     <Content Include="config\WebSites.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="config\Users.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
