@@ -54,7 +54,7 @@ namespace GameServer
                 .AppendAttribute("for", id)
                 .Append(">")
                 .Append(label)
-                .Append("</label><input")
+                .Append("</label><input class=\"form-control\"")
                 .AppendAttributeIfPopulated("name", name)
                 .AppendAttributeIfPopulated("value", value)
                 .AppendAttribute("type", type)

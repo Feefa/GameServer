@@ -19,5 +19,17 @@ namespace GameServer.WebSites.Default
 
             return string.Empty;
         }
+
+        [HttpMethod("POST")]
+        public string Login()
+        {
+            if (Request.User.Roles.Any())
+            {
+                Request.ViewTemplateName = "Index";
+                Index();
+            }
+
+            return "There was a problem with your login details. Please try again.";
+        }
     }
 }

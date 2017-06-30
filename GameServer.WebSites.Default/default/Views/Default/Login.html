@@ -2,9 +2,12 @@
 
 {@Content
     {=Bootstrap.Container()
-        {=Bootstrap.Form("POST", "/Login")
-            {=Bootstrap.FormInput("inputUserName", "User Name", "userid", "", "text", "User Name", false)}
-            {=Bootstrap.FormInput("inputPassword", "Password", "password", "", "password", "Password", false)}
+        {=Bootstrap.Form("POST", "/Default/Login")
+            <h1>Game Server Registration</h1>
+            <p>Enter the name that you wish to be known by on Game Server in the User Name box. Enter any password in the Password box. The password can be used to move your session 
+               to another device. If you have an Admin or Games Master account then enter the user name and password of that account.</p>
+            {=Bootstrap.FormInput("inputUserName", "User Name", "userid", "", "text", "User Name", true, true, true)}
+            {=Bootstrap.FormInput("inputPassword", "Password", "password", "", "password", "Password", true, true)}
             {=Bootstrap.Button("Register", "submit", "", "primary", "lg", true)}
         }
     }
