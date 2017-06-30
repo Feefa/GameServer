@@ -86,6 +86,7 @@ namespace GameServer
             else
             {
                 MessagesTextBox.Text += message + Environment.NewLine;
+                Show();
             }
         }
 

@@ -12,6 +12,7 @@
         <users>
           <array>
             <element>Admin,admin,Admin</element>
+            <element>Games Master,admin,GM_Admin</element>
           </array>
         </users>
       </parameters>
