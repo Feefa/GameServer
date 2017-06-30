@@ -49,6 +49,26 @@ namespace GameServer
             return string.IsNullOrEmpty(value) ? this : AppendAttribute(name, value);
         }
 
+        ////public MarkUpBuilder If(bool condition)
+        ////{
+        ////    ifStack.Push(condition);
+
+        ////    return this;
+        ////}
+
+        ////public MarkUpBuilder Else()
+        ////{
+        ////    ifStack.Push(!ifStack.Pop());
+
+        ////    return this;
+        ////}
+
+        ////public MarkUpBuilder EndIf()
+        ////{
+        ////    ifStack.Pop();
+        ////    return this;
+        ////}
+
         public override string ToString()
         {
             return stringBuilder.ToString();

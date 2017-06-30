@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Thingy.WebServerLite.Api;
 
-namespace Thingy.WebServerLite
+namespace GameServer
 {
     public class BootstrapViewLibrary : IViewLibrary
     {

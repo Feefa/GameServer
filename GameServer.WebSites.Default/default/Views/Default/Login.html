@@ -1,0 +1,11 @@
+﻿{@Title Log in or register}
+
+{@Content
+    {=Bootstrap.Container()
+        {=Bootstrap.Form("POST", "/Login")
+            {=Bootstrap.FormInput("inputUserName", "User Name", "userid", "", "text", "User Name", false)}
+            {=Bootstrap.FormInput("inputPassword", "Password", "password", "", "password", "Password", false)}
+            {=Bootstrap.Button("Register", "submit", "", "primary", "lg", true)}
+        }
+    }
+}

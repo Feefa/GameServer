@@ -50,9 +50,32 @@
     <Content Include="config\DefaultWebSite.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="default\css\bootstrap-theme.css" />
+    <Content Include="default\css\bootstrap-theme.min.css" />
+    <Content Include="default\css\bootstrap.css" />
+    <Content Include="default\css\bootstrap.min.css" />
+    <Content Include="default\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="default\Index.html">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="default\js\bootstrap.js" />
+    <Content Include="default\js\bootstrap.min.js" />
+    <Content Include="default\js\jquery-3.2.1.min.js" />
+    <Content Include="default\js\npm.js" />
+    <Content Include="default\Views\Default\Index.html" />
+    <Content Include="default\Views\Default\Login.html" />
+    <Content Include="default\Views\Master.html" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="default\css\bootstrap-theme.css.map" />
+    <None Include="default\css\bootstrap-theme.min.css.map" />
+    <None Include="default\css\bootstrap.css.map" />
+    <None Include="default\css\bootstrap.min.css.map" />
+    <None Include="default\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="default\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="default\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="default\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

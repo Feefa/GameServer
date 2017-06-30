@@ -10,9 +10,14 @@ namespace GameServer.WebSites.Default
     public class DefaultController : ControllerBase
     {
         [HttpMethod("GET")]
-        public string Test()
+        public string Index()
         {
-            return Request.ControllerName;
+            if (!Request.User.Roles.Any())
+            {
+                Request.ViewTemplateName = "Login";
+            }
+
+            return string.Empty;
         }
     }
 }
