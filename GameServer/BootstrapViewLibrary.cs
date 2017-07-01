@@ -13,20 +13,20 @@ namespace GameServer
 
         public string Container()
         {
-            return "<div class=\"container\">[[Content]]</div>";
+            return "[[HasContent]]<div class=\"container\">[[Content]]</div>";
         }
         public string ContainerFluid()
         {
-            return "<div class=\"container-fluid\">[[Content]]</div>";
+            return "[[HasContent]]<div class=\"container-fluid\">[[Content]]</div>";
         }
         public string GridRow()
         {
-            return "<div class=\"row\">[[Content]]</div>";
+            return "[[HasContent]]<div class=\"row\">[[Content]]</div>";
         }
         public string GridCell(int xs = -1, int sm = -1, int md = -1, int lg = -1)
         {
             return new MarkUpBuilder()
-                .Append("<div class=\"")
+                .Append("[[HasContent]]<div class=\"")
                 .AppendFormatConditional(xs != -1, "col-xs-{0}", xs)
                 .AppendFormatConditional(sm != -1, "col-sm-{0}", sm)
                 .AppendFormatConditional(md != -1, "col-md-{0}", md)
@@ -37,7 +37,7 @@ namespace GameServer
         public string Form(string method, string action, string className = "", string name = "", string attributes = "")
         {
             return new MarkUpBuilder()
-                .AppendFormat("<form method=\"{0}\" action=\"{1}\"", method, action)
+                .AppendFormat("[[HasContent]]<form method=\"{0}\" action=\"{1}\"", method, action)
                 .AppendAttributeIfPopulated("class", className)
                 .AppendAttributeIfPopulated("name", name)
                 .AppendConditional(!string.IsNullOrEmpty(attributes), " ")
@@ -146,17 +146,17 @@ namespace GameServer
 
         public string ButtonGroup(string label, string type = "btn-group")
         {
-            return string.Format("<div class=\"{1}\" role=\"group\" aria-label=\"{0}\">[[Content]]</div>", label, type);
+            return string.Format("[[HasContent]]<div class=\"{1}\" role=\"group\" aria-label=\"{0}\">[[Content]]</div>", label, type);
         }
 
         public string ButtonToolbar(string label)
         {
-            return string.Format("<div class=\"btn-toolbar\" role=\"toolbar\" aria-label=\"{0}\">[[Content]]</div>", label);
+            return string.Format("[[HasContent]]<div class=\"btn-toolbar\" role=\"toolbar\" aria-label=\"{0}\">[[Content]]</div>", label);
         }
 
         public string UnorderedList(string caption)
         {
-            return string.Format("<ul>{0}[[Content]]</ul>", caption);
+            return string.Format("[[HasContent]]<ul>{0}[[Content]]</ul>", caption);
         }
 
         public string UnorderedListItem(string caption)
