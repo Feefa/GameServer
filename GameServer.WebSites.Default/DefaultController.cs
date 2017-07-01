@@ -10,26 +10,33 @@ namespace GameServer.WebSites.Default
     public class DefaultController : ControllerBase
     {
         [HttpMethod("GET")]
-        public string Index()
+        public StartUpModel Index()
         {
             if (!Request.User.Roles.Any())
             {
                 Request.ViewTemplateName = "Login";
             }
 
-            return string.Empty;
+            return new StartUpModel
+            {
+                User = Request.User
+            };
         }
 
         [HttpMethod("POST")]
-        public string Login()
+        public StartUpModel Login()
         {
             if (Request.User.Roles.Any())
             {
                 Request.ViewTemplateName = "Index";
-                Index();
+                return Index();
             }
 
-            return "There was a problem with your login details. Please try again.";
+            return new StartUpModel
+            {
+                Message = "There was a problem with your login details. Please try again.",
+                User = Request.User
+            };
         }
     }
 }
