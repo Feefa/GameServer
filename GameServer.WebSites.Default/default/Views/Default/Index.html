@@ -1,10 +1,17 @@
-﻿{@Title Game Server Index Page}
+﻿{@Title Game Server}
 
 {@Content
-    <h1>Game Server Index Page Placeholder</h1>
-    <p>This is where the game server index page will go.</p>
-    {?model.UserHasRole("GamesMaster")
-        <p><a href="/AvalonHelper/SetUp/GamesMaster">Start an Avalon</a></p>
+    {=Bootstrap.Container()
+        <h1>Game Server<br/><small>Select a game</small></h1>
+        {#Games model.Games}        
     }
-    <p><a href="/AvalonHelper/SetUp/Player">Avalon Setup Helper</a></p>
+}
+
+{@Games 
+    <h2>{model.Title}<br/>
+        <small>
+            <a href="{model.Url}">
+                {model.Description}</a>
+        </small>
+    </h2>
 }

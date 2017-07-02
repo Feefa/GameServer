@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8B94F5B3-17AB-4FDB-BC12-82AAEFCACFE9}</ProjectGuid>
+    <ProjectGuid>{682410C5-0594-4EAD-9E67-8EE234DA900B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>GameServer.WebSites.Default</RootNamespace>
-    <AssemblyName>GameServer.WebSites.Default</AssemblyName>
+    <RootNamespace>GameServer.WebSites.AvalonHelper</RootNamespace>
+    <AssemblyName>GameServer.WebSites.AvalonHelper</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -43,29 +43,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DefaultController.cs" />
-    <Compile Include="Models\StartUpModel.cs" />
+    <Compile Include="AvalonHelperGamesMasterGameInfo.cs" />
+    <Compile Include="AvalonHelperWebSite.cs" />
+    <Compile Include="AvalonHelperPlayerGameInfo.cs" />
+    <Compile Include="SetUpController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config\DefaultWebSite.xml">
-      <SubType>Designer</SubType>
-    </Content>
-    <Content Include="default\css\bootstrap-theme.css" />
-    <Content Include="default\css\bootstrap-theme.min.css" />
-    <Content Include="default\css\bootstrap.css" />
-    <Content Include="default\css\bootstrap.min.css" />
-    <Content Include="default\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="default\Index.html">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="default\js\bootstrap.js" />
-    <Content Include="default\js\bootstrap.min.js" />
-    <Content Include="default\js\jquery-3.2.1.min.js" />
-    <Content Include="default\js\npm.js" />
-    <Content Include="default\Views\Default\Index.html" />
-    <Content Include="default\Views\Default\Login.html" />
-    <Content Include="default\Views\Master.html" />
+    <Content Include="avalonhelper\Views\Master.html" />
+    <Content Include="avalonhelper\Views\SetUp\GamesMaster.html" />
+    <Content Include="config\AvalonHelperWebsite.xml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameServer.Api\GameServer.Api.csproj">
@@ -73,21 +60,11 @@
       <Name>GameServer.Api</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="default\css\bootstrap-theme.css.map" />
-    <None Include="default\css\bootstrap-theme.min.css.map" />
-    <None Include="default\css\bootstrap.css.map" />
-    <None Include="default\css\bootstrap.min.css.map" />
-    <None Include="default\fonts\glyphicons-halflings-regular.eot" />
-    <None Include="default\fonts\glyphicons-halflings-regular.ttf" />
-    <None Include="default\fonts\glyphicons-halflings-regular.woff" />
-    <None Include="default\fonts\glyphicons-halflings-regular.woff2" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy $(TargetPath) $(SolutionDir)GameServer\$(OutDir) /Y
 xcopy $(ProjectDir)config\*xml $(SolutionDir)GameServer\$(OutDir)config /Y
-xcopy $(ProjectDir)default\*.* $(SolutionDir)GameServer\$(OutDir)\default /Y /I /E
+xcopy $(ProjectDir)avalonhelper\*.* $(SolutionDir)GameServer\$(OutDir)\avalonhelper /Y /I /E
 </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

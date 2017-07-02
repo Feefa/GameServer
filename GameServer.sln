@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer", "GameServer\Ga
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer.WebSites.Default", "GameServer.WebSites.Default\GameServer.WebSites.Default.csproj", "{8B94F5B3-17AB-4FDB-BC12-82AAEFCACFE9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer.WebSites.AvalonHelper", "GameServer.WebSites.AvalonHelper\GameServer.WebSites.AvalonHelper.csproj", "{682410C5-0594-4EAD-9E67-8EE234DA900B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameServer.Api", "GameServer.Api\GameServer.Api.csproj", "{B96E700D-6C02-466C-8707-E1E28991DEFF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8B94F5B3-17AB-4FDB-BC12-82AAEFCACFE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B94F5B3-17AB-4FDB-BC12-82AAEFCACFE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B94F5B3-17AB-4FDB-BC12-82AAEFCACFE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682410C5-0594-4EAD-9E67-8EE234DA900B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682410C5-0594-4EAD-9E67-8EE234DA900B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682410C5-0594-4EAD-9E67-8EE234DA900B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682410C5-0594-4EAD-9E67-8EE234DA900B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B96E700D-6C02-466C-8707-E1E28991DEFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B96E700D-6C02-466C-8707-E1E28991DEFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B96E700D-6C02-466C-8707-E1E28991DEFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B96E700D-6C02-466C-8707-E1E28991DEFF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

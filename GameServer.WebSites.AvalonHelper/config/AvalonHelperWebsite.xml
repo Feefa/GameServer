@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <components>
+
+    <properties>
+      <name>AvalonHelper</name>
+      <portNumber>12014</portNumber>
+      <path>avalonhelper</path>
+    </properties>
+    
+    <component id="AvalonHelperWebSite">
+      <parameters>
+        <name>#{name}</name>
+        <portNumber>#{portNumber}</portNumber>
+        <path>#{path}</path>
+      </parameters>
+    </component>
+
+    <component id="AvalonHelperGamesMasterGameInfo">
+      <parameters>
+        <title>Avalon Helper</title>
+        <portNumber>#{portNumber}</portNumber>
+        <pathAndQuery>#{path}\SetUp\GamesMaster</pathAndQuery>
+        <description>Start a game of The Resistance : Avalon or view the GM information</description>
+        <role>GM_Admin</role>
+      </parameters>
+    </component>
+
+    <component id="AvalonHelperPlayerGameInfo">
+      <parameters>
+        <Title>Avalon Helper</Title>
+        <portNumber>#{portNumber}</portNumber>
+        <pathAndQuery>#{path}\SetUp\GamesMaster</pathAndQuery>        
+        <description>Join a game of The Resistance : Avalon as a player</description>
+        <role>Player</role>
+      </parameters>
+    </component>
+
+  </components>
+</configuration>

@@ -69,7 +69,6 @@
     <Compile Include="forms\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="MarkUpBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="forms\WebServerLoggingProvider.cs">
@@ -110,6 +109,12 @@
     <Content Include="config\Users.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameServer.Api\GameServer.Api.csproj">
+      <Project>{b96e700d-6c02-466c-8707-e1e28991deff}</Project>
+      <Name>GameServer.Api</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

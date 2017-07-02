@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameServer.Api;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,13 @@ namespace GameServer.WebSites.Default
 {
     public class DefaultController : ControllerBase
     {
+        private readonly IGameInfo[] games;
+
+        public DefaultController(IGameInfo[] games)
+        {
+            this.games = games;
+        }
+
         [HttpMethod("GET")]
         public StartUpModel Index()
         {
@@ -19,7 +27,8 @@ namespace GameServer.WebSites.Default
 
             return new StartUpModel
             {
-                User = Request.User
+                User = Request.User,
+                Games = games.Where(g=>Request.User.Roles.Contains(g.Role)).ToArray()
             };
         }
 
@@ -29,6 +38,7 @@ namespace GameServer.WebSites.Default
             if (Request.User.Roles.Any())
             {
                 Request.ViewTemplateName = "Index";
+
                 return Index();
             }
 
