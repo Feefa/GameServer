@@ -52,7 +52,9 @@
   <ItemGroup>
     <Content Include="avalonhelper\Views\Master.html" />
     <Content Include="avalonhelper\Views\SetUp\GamesMaster.html" />
-    <Content Include="config\AvalonHelperWebsite.xml" />
+    <Content Include="config\AvalonHelperWebsite.xml">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameServer.Api\GameServer.Api.csproj">
