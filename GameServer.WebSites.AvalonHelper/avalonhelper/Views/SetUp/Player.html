@@ -1,0 +1,19 @@
+﻿{!PlayerList.html}
+
+{@Title Avalon Player Page}
+
+{@Content
+    {=Bootstrap.Container()
+        {=Bootstrap.GridRow()
+            {=Bootstrap.GridCell(-1, -1, 4)
+                {#PlayerList model.Players}
+            }
+            {=Bootstrap.GridCell(-1, -1, 4)
+                <p>Role Select?</p>
+            }
+            {=Bootstrap.GridCell(-1, -1, 4)
+                <p>Not sure</p>
+            }
+        }
+    }
+}

@@ -30,7 +30,7 @@
       <parameters>
         <Title>Avalon Helper</Title>
         <portNumber>#{portNumber}</portNumber>
-        <pathAndQuery>SetUp\GamesMaster</pathAndQuery>        
+        <pathAndQuery>SetUp\Player</pathAndQuery>        
         <description>Join a game of The Resistance : Avalon as a player</description>
         <role>Player</role>
       </parameters>

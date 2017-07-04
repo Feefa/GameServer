@@ -43,18 +43,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AvalonGame.cs" />
     <Compile Include="AvalonHelperGamesMasterGameInfo.cs" />
     <Compile Include="AvalonHelperWebSite.cs" />
     <Compile Include="AvalonHelperPlayerGameInfo.cs" />
+    <Compile Include="GameStatuses.cs" />
+    <Compile Include="IAvalonGame.cs" />
+    <Compile Include="Models\AvalonHelperModel.cs" />
+    <Compile Include="Models\PlayerStatusModel.cs" />
+    <Compile Include="Models\UserStatusModel.cs" />
     <Compile Include="SetUpController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="avalonhelper\Views\Master.html" />
     <Content Include="avalonhelper\Views\SetUp\GamesMaster.html" />
+    <Content Include="avalonhelper\Views\SetUp\Player.html" />
     <Content Include="config\AvalonHelperWebsite.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="avalonhelper\Views\SetUp\PlayerList.html" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GameServer.Api\GameServer.Api.csproj">

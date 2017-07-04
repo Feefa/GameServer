@@ -9,11 +9,29 @@ namespace GameServer.WebSites.AvalonHelper
 {
     public class SetUpController : ControllerBase
     {
+        private readonly IAvalonGame game;
+
+        public SetUpController(IAvalonGame game)
+        {
+            this.game = game;
+        }
+
         [HttpMethod("GET")]
         [AuthorizedRole("GM_Admin")]
         public string GamesMaster()
         {
             return string.Empty;
+        }
+
+        [HttpMethod("GET")]
+        [AuthorizedRole("Player")]
+        public AvalonHelperModel Player()
+        {
+            return new AvalonHelperModel
+            {
+                UserStatus = game.GetUserStatus(Request.User),
+                Players = game.GetPlayerList()
+            };
         }
     }
 }

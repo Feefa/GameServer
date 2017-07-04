@@ -23,12 +23,7 @@ namespace GameServer.WebSites.AvalonHelper
 
         public override bool CanHandle(IWebServerRequest request)
         {
-            if (base.CanHandle(request))
-            {
-                return !request.HttpListenerRequest.Url.Segments.Any() || !request.HttpListenerRequest.Url.Segments.Last().Contains(".");
-            }
-
-            return false;
+            return base.CanHandle(request) && !request.IsFile;
         }
     }
 }
