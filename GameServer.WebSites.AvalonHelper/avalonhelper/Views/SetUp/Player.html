@@ -1,4 +1,6 @@
 ﻿{!PlayerList.html}
+{!RoleSelect.html}
+{!RoleInfo.html}
 
 {@Title Avalon Player Page}
 
@@ -9,10 +11,10 @@
                 {#PlayerList}
             }
             {=Bootstrap.GridCell(-1, -1, 4)
-                <p>Role Select?</p>
+                {#RoleSelect}
             }
             {=Bootstrap.GridCell(-1, -1, 4)
-                <p>Not sure</p>
+                {#RoleInfo}
             }
         }
     }

@@ -57,9 +57,40 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="avalonhelper\Images\avalon.css" />
+    <Content Include="avalonhelper\Images\assassin_large.jpg" />
+    <Content Include="avalonhelper\Images\assassin_small.jpg" />
+    <Content Include="avalonhelper\Images\merlin_large.jpg" />
+    <Content Include="avalonhelper\Images\merlin_small.jpg" />
+    <Content Include="avalonhelper\Images\minion1_large.jpg" />
+    <Content Include="avalonhelper\Images\minion1_small.jpg" />
+    <Content Include="avalonhelper\Images\minion2_large.jpg" />
+    <Content Include="avalonhelper\Images\minion2_small.jpg" />
+    <Content Include="avalonhelper\Images\minion3_large.jpg" />
+    <Content Include="avalonhelper\Images\minion3_small.jpg" />
+    <Content Include="avalonhelper\Images\mordred_large.jpg" />
+    <Content Include="avalonhelper\Images\mordred_small.jpg" />
+    <Content Include="avalonhelper\Images\morgana_large.jpg" />
+    <Content Include="avalonhelper\Images\morgana_small.jpg" />
+    <Content Include="avalonhelper\Images\oberon_large.jpg" />
+    <Content Include="avalonhelper\Images\oberon_small.jpg" />
+    <Content Include="avalonhelper\Images\percival_large.jpg" />
+    <Content Include="avalonhelper\Images\percival_small.jpg" />
+    <Content Include="avalonhelper\Images\servant1_large.jpg" />
+    <Content Include="avalonhelper\Images\servant1_small.jpg" />
+    <Content Include="avalonhelper\Images\servant2_large.jpg" />
+    <Content Include="avalonhelper\Images\servant2_small.jpg" />
+    <Content Include="avalonhelper\Images\servant3_large.jpg" />
+    <Content Include="avalonhelper\Images\servant3_small.jpg" />
+    <Content Include="avalonhelper\Images\servant4_large.jpg" />
+    <Content Include="avalonhelper\Images\servant4_small.jpg" />
+    <Content Include="avalonhelper\Images\servant5_large.jpg" />
+    <Content Include="avalonhelper\Images\servant5_small.jpg" />
     <Content Include="avalonhelper\Views\Master.html" />
     <Content Include="avalonhelper\Views\SetUp\GamesMaster.html" />
     <Content Include="avalonhelper\Views\SetUp\Player.html" />
+    <Content Include="avalonhelper\Views\SetUp\RoleInfo.html" />
+    <Content Include="avalonhelper\Views\SetUp\RoleSelect.html" />
     <Content Include="config\AvalonHelperWebsite.xml">
       <SubType>Designer</SubType>
     </Content>

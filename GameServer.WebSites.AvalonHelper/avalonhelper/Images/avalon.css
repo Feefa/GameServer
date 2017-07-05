@@ -1,0 +1,23 @@
+﻿div.role-card div.image-container div
+{
+     width : 240px; 
+     margin : 0 auto;
+}
+
+div.role-card div.name
+{
+    background-color : black;
+    color : gold;
+    margin-top : 2px;
+    font-weight : bold;
+    text-align : center;
+    padding : 2px;
+    font-size : 125%;
+    text-transform : capitalize;
+}
+
+div.role-card div.description-container
+{
+    border : 1px solid silver; 
+    padding : 4px;
+}

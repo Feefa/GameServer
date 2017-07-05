@@ -23,7 +23,17 @@ namespace GameServer.WebSites.AvalonHelper
 
         public override bool CanHandle(IWebServerRequest request)
         {
-            return base.CanHandle(request) && !request.IsFile;
+            bool canHandle = base.CanHandle(request);
+
+            if (canHandle && request.IsFile)
+            {
+                if (!request.FilePath.StartsWith("Images\\"))
+                {
+                    return false;
+                }
+            }
+
+            return canHandle;
         }
     }
 }
