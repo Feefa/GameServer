@@ -33,5 +33,15 @@ namespace GameServer.WebSites.AvalonHelper
                 Players = game.GetPlayerList()
             };
         }
+
+        [HttpMethod("POST")]
+        [AuthorizedRole("Player")]
+        public AvalonHelperModel SelectRole(int roleId)
+        {
+            game.SelectRole(Request.User, roleId);
+            Request.ViewTemplateName = "Player";
+
+            return Player();
+        }
     }
 }

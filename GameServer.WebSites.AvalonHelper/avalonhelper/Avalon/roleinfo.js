@@ -4,6 +4,7 @@
     {
         $(".role-card").hide();
         $(".role-card." + this.className).show();
+        $(".role-card-button-container input[name='roleId']").val(this.className.substring(4));
     }
 
     function cancelButtonClick()
