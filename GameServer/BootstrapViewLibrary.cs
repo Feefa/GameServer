@@ -34,10 +34,12 @@ namespace GameServer
                 .Append("\">[[Content]]</div>")
                 .ToString();                
         }
-        public string Form(string method, string action, string className = "", string name = "", string attributes = "")
+        public string Form(string method = "", string action = "", string className = "", string name = "", string attributes = "")
         {
             return new MarkUpBuilder()
-                .AppendFormat("[[HasContent]]<form method=\"{0}\" action=\"{1}\"", method, action)
+                .Append("[[HasContent]]<form")
+                .AppendAttributeIfPopulated("method", method)
+                .AppendAttributeIfPopulated("action", action)
                 .AppendAttributeIfPopulated("class", className)
                 .AppendAttributeIfPopulated("name", name)
                 .AppendConditional(!string.IsNullOrEmpty(attributes), " ")

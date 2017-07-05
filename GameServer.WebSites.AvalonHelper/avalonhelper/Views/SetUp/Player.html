@@ -8,14 +8,18 @@
     {=Bootstrap.Container()
         {=Bootstrap.GridRow()
             {=Bootstrap.GridCell(-1, -1, 4)
-                {#PlayerList}
+                {#RoleInfo}
             }
             {=Bootstrap.GridCell(-1, -1, 4)
                 {#RoleSelect}
             }
             {=Bootstrap.GridCell(-1, -1, 4)
-                {#RoleInfo}
+                {#PlayerList}
             }
         }
     }
+}
+
+{@Scripts
+    <script type="text/javascript" src="avalon/roleinfo.js"></script>
 }

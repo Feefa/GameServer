@@ -27,7 +27,7 @@ namespace GameServer.WebSites.AvalonHelper
 
             if (canHandle && request.IsFile)
             {
-                if (!request.FilePath.StartsWith("Images\\"))
+                if (!request.FilePath.ToLower().StartsWith("images\\") && !request.FilePath.ToLower().StartsWith("avalon\\"))
                 {
                     return false;
                 }

@@ -1,14 +1,21 @@
-﻿div.role-card div.image-container div
+﻿div.role-card
 {
-     width : 240px; 
-     margin : 0 auto;
+    display : none;
+}
+
+div.role-card div.image-container div
+{
+    width : 240px; 
+    margin : 4px auto 0 auto;
+    height : 296px;
+    overflow : hidden;
 }
 
 div.role-card div.name
 {
     background-color : black;
     color : gold;
-    margin-top : 2px;
+    margin-top : 4px;
     font-weight : bold;
     text-align : center;
     padding : 2px;
@@ -20,4 +27,9 @@ div.role-card div.description-container
 {
     border : 1px solid silver; 
     padding : 4px;
+}
+
+div.role-card-button-container
+{
+    margin-top : 4px;
 }

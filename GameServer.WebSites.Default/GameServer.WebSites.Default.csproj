@@ -61,7 +61,7 @@
     </Content>
     <Content Include="default\js\bootstrap.js" />
     <Content Include="default\js\bootstrap.min.js" />
-    <Content Include="default\js\jquery-3.2.1.min.js" />
+    <Content Include="default\js\jquery.min.js" />
     <Content Include="default\js\npm.js" />
     <Content Include="default\Views\Default\Index.html" />
     <Content Include="default\Views\Default\Login.html" />

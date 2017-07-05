@@ -57,7 +57,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="avalonhelper\Images\avalon.css" />
+    <Content Include="avalonhelper\Avalon\avalon.css" />
+    <Content Include="avalonhelper\Avalon\roleinfo.js" />
     <Content Include="avalonhelper\Images\assassin_large.jpg" />
     <Content Include="avalonhelper\Images\assassin_small.jpg" />
     <Content Include="avalonhelper\Images\merlin_large.jpg" />
