@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AvalonGame.cs" />
+    <Compile Include="AvalonHelperException.cs" />
     <Compile Include="AvalonHelperGamesMasterGameInfo.cs" />
     <Compile Include="AvalonHelperWebSite.cs" />
     <Compile Include="AvalonHelperPlayerGameInfo.cs" />

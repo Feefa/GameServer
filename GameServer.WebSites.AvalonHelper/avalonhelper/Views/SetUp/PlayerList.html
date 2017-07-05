@@ -1,3 +1,20 @@
 ﻿{@PlayerList
-    <p>Player List</p>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {#PlayerListItem Players}
+        </tbody>
+    </table>
+}
+
+{@PlayerListItem
+    <tr class="{=model.GetStatusClass()}">
+        <td>{model.UserId}</td>
+        <td>{=model.GetStatusText()}</td>
+    </tr>
 }

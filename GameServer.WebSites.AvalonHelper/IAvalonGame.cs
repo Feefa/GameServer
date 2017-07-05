@@ -15,9 +15,12 @@ namespace GameServer.WebSites.AvalonHelper
 
         bool SelectRole(IUser user, int roleId);
 
-        void StartGame();
+        string StartGame();
 
         void EndGame();
+
+        void ResetGame();
+
         PlayerStatusModel[] GetPlayerList();
     }
 }

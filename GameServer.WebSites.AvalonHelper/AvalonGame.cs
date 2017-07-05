@@ -20,10 +20,10 @@ namespace GameServer.WebSites.AvalonHelper
 
         public UserStatusModel GetUserStatus(IUser user)
         {
-            UserStatusModel model = new UserStatusModel();
-            model.RoleId = GetRoleIdForUser(user);
-
-            throw new NotImplementedException();
+            return new UserStatusModel
+            {
+                RoleId = GetRoleIdForUser(user)
+            };
         }
 
         private int GetRoleIdForUser(IUser user)
@@ -102,14 +102,96 @@ namespace GameServer.WebSites.AvalonHelper
             return status;
         }
 
-        public void StartGame()
+        public void SetGameStatus(GameStatuses status)
         {
-            throw new NotImplementedException();
+            gameStateMutex.WaitOne();
+
+            try
+            {
+                gameStatus = status;
+            }
+            finally
+            {
+                gameStateMutex.ReleaseMutex();
+            }
+        }
+
+        public string StartGame()
+        {
+            GameStatuses gameStatus = GetGameStatus();
+
+            if (gameStatus != GameStatuses.SettingUp)
+            {
+                throw new AvalonHelperException("Attempted to start game when GameStatus != SettingUp.");
+            }
+
+            int playerCount;
+            int settingUpCount;
+
+            userRolesMutex.WaitOne();
+
+            try
+            {
+                playerCount = userRoles.Keys.Count(k => userRoles[k] > 0);
+                settingUpCount = userRoles.Keys.Count(k => userRoles[k] == 0);
+            }
+            finally
+            {
+                userRolesMutex.ReleaseMutex();
+            }
+
+            if (playerCount < 5)
+            {
+                return "There are not enough players to start the game";
+            }
+
+            if (settingUpCount > 0)
+            {
+                return "One or more players has not confirmed their role on the role section screen";
+            }
+
+            SetGameStatus(GameStatuses.InProgress);
+
+            return string.Empty;
         }
 
         public void EndGame()
         {
-            throw new NotImplementedException();
+            GameStatuses gameStatus = GetGameStatus();
+
+            if (gameStatus != GameStatuses.InProgress)
+            {
+                throw new AvalonHelperException("Attempted to end game when GameStatus != SettingUp.");
+            }
+
+            SetGameStatus(GameStatuses.EndScreen);
+        }
+
+        public void ResetGame()
+        {
+            GameStatuses gameStatus = GetGameStatus();
+
+            if (gameStatus == GameStatuses.InProgress)
+            {
+                throw new AvalonHelperException("Attempted to end game when GameStatus = InProgress.");
+            }
+
+            SetGameStatus(GameStatuses.EndScreen);
+            ClearUserRoles();
+        }
+
+        private void ClearUserRoles()
+        {
+            userRolesMutex.WaitOne();
+
+            try
+            {
+                userRoles.Clear();
+            }
+            finally
+            {
+                userRolesMutex.ReleaseMutex();
+            }
         }
 
         public PlayerStatusModel[] GetPlayerList()
