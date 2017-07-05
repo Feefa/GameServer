@@ -9,7 +9,12 @@
                 {#PlayerList}
             }
             {=Bootstrap.GridCell(-1, -1, 4)
-                <h2>Avalon!</h2>
+                <h2>{model.CanStartGameMessage}</h2>
+                {?model.CanStartGame()
+                    {=Bootstrap.Form("POST", "StartGame")
+                        {=Bootstrap.Button("Start The Game", "submit", "start-game", "success", "large", true)}
+                    }
+                }
             }
             {=Bootstrap.GridCell(-1, -1, 4)
                 <h2>Avalon!</h2>

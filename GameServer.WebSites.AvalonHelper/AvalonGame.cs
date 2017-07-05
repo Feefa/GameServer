@@ -28,6 +28,11 @@ namespace GameServer.WebSites.AvalonHelper
 
         private int GetRoleIdForUser(IUser user)
         {
+            if(!user.Roles.Contains("Player"))
+            {
+                return -1;
+            }
+
             int roleId;
             userRolesMutex.WaitOne();
 
@@ -116,7 +121,7 @@ namespace GameServer.WebSites.AvalonHelper
             }
         }
 
-        public string StartGame()
+        public string CanStartGame()
         {
             GameStatuses gameStatus = GetGameStatus();
 
@@ -150,9 +155,19 @@ namespace GameServer.WebSites.AvalonHelper
                 return "One or more players has not confirmed their role on the role section screen";
             }
 
-            SetGameStatus(GameStatuses.InProgress);
-
             return string.Empty;
+        }
+
+        public string StartGame()
+        {
+            string message = CanStartGame();
+
+            if (string.IsNullOrEmpty(message))
+            {
+                SetGameStatus(GameStatuses.InProgress);
+            }
+
+            return message;
         }
 
         public void EndGame()
@@ -206,11 +221,18 @@ namespace GameServer.WebSites.AvalonHelper
 
                 foreach(string userId in userRoles.Keys)
                 {
-                    players[index++] = new PlayerStatusModel
+                    int roleId = userRoles[userId] > 0 ? 1 : userRoles[userId];
+
+                    if (roleId != -1)
                     {
-                        UserId = userId,
-                        RoleId = userRoles[userId] > 0 ? 1 : userRoles[userId]
-                    };
+                        players[index] = new PlayerStatusModel
+                        {
+                            UserId = userId,
+                            RoleId = roleId
+                        };
+                    }
+
+                    index++;
                 }
             }
             finally

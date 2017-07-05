@@ -15,6 +15,8 @@ namespace GameServer.WebSites.AvalonHelper
 
         bool SelectRole(IUser user, int roleId);
 
+        string CanStartGame();
+
         string StartGame();
 
         void EndGame();
