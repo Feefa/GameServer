@@ -17,6 +17,12 @@
         $(".role-card").hide();
         $(".role-select a").click(roleSelectClick)
         $(".role-card-button-container button[name='cancel-role-select']").click(cancelButtonClick);
+        var roleId = $(".role-card-button-container input[name='roleId']").val();
+
+        if (roleId > 0)
+        {
+            $(".role-card.role" + roleId).show();
+        }
     }
 
     $(document).ready(documentReady);

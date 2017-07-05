@@ -1,8 +1,23 @@
-﻿{@Title Avalon Games Master Page}
+﻿{!PlayerList.html}
+
+{@Title Avalon Games Master Page}
 
 {@Content
-    <h1>Avalon Helper</h1>
-    <p>Set up the game here</p>
-    <p>Needs a list of players who have joined.</p>
-    <p>Needs a start button.</p>
+    {=Bootstrap.Container()
+        {=Bootstrap.GridRow()
+            {=Bootstrap.GridCell(-1, -1, 4)
+                {#PlayerList}
+            }
+            {=Bootstrap.GridCell(-1, -1, 4)
+                <h2>Avalon!</h2>
+            }
+            {=Bootstrap.GridCell(-1, -1, 4)
+                <h2>Avalon!</h2>
+            }
+        }
+    }
+}
+
+{@Scripts
+    <script type="text/javascript" src="avalon/refresh.js"></script>
 }

@@ -18,30 +18,39 @@ namespace GameServer.WebSites.AvalonHelper
 
         [HttpMethod("GET")]
         [AuthorizedRole("GM_Admin")]
-        public string GamesMaster()
+        public AvalonHelperModel GamesMaster()
         {
-            return string.Empty;
+            return CreateAvalonHelperModel();
         }
 
         [HttpMethod("GET")]
         [AuthorizedRole("Player")]
         public AvalonHelperModel Player()
         {
-            return new AvalonHelperModel
-            {
-                UserStatus = game.GetUserStatus(Request.User),
-                Players = game.GetPlayerList()
-            };
+            return CreateAvalonHelperModel();
         }
 
         [HttpMethod("POST")]
         [AuthorizedRole("Player")]
         public AvalonHelperModel SelectRole(int roleId)
         {
-            game.SelectRole(Request.User, roleId);
-            Request.ViewTemplateName = "Player";
+            if (game.GetUserStatus(Request.User).RoleId == 0)
+            {
+                game.SelectRole(Request.User, roleId);
+            }
 
+            Request.ViewTemplateName = "Player";
             return Player();
+        }
+
+        private AvalonHelperModel CreateAvalonHelperModel()
+        {
+            return new AvalonHelperModel
+            {
+                GameStatus = game.GetGameStatus(),
+                UserStatus = game.GetUserStatus(Request.User),
+                Players = game.GetPlayerList()
+            };
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿{!PlayerList.html}
 {!RoleSelect.html}
 {!RoleInfo.html}
+{!RoleSecrets.html}
+{!PlayerWaiting.html}
 
 {@Title Avalon Player Page}
 
@@ -11,7 +13,15 @@
                 {#RoleInfo}
             }
             {=Bootstrap.GridCell(-1, -1, 4)
-                {#RoleSelect}
+                {?model.CanSelectRole()
+                    {#RoleSelect}
+                }
+                {?model.CanShowSecrets()
+                    {#RoleSecrets}
+                }
+                {?model.IsWaiting()
+                    {#PlayerWaiting}
+                }
             }
             {=Bootstrap.GridCell(-1, -1, 4)
                 {#PlayerList}

@@ -13,13 +13,16 @@
     {#Minion1RoleInfo}
     {#Minion2RoleInfo}
     {#Minion3RoleInfo}
-    <div class="role-card-button-container role-card role1 role2 role3 role4 role5 role6 role7 role8 role9 role10 role11 role12 role13 role14">
-        {=Bootstrap.Form("Post", "SelectRole")
-            {=Bootstrap.Button("Look at another role", "button", "cancel-role-select", "danger", "large", true)}
-            {=Bootstrap.Button("Select this role", "submit", "confirm-role-select", "success", "large", true)}
-            <input name="roleId" type="hidden" />
-        }
-    </div>
+        <div class="role-card-button-container role-card role1 role2 role3 role4 role5 role6 role7 role8 role9 role10 role11 role12 role13 role14">
+            {=Bootstrap.Form("Post", "SelectRole")
+                {?model.CanSelectRole()
+                    {=Bootstrap.Button("Look at another role", "button", "cancel-role-select", "danger", "large", true)}
+                    {=Bootstrap.Button("Select this role", "submit", "confirm-role-select", "success", "large", true)}
+                }
+                <input name="roleId" type="hidden" value="{model.UserStatus.RoleId}" />
+            }
+        </div>
+    }
 }
 
 {@MerlinRoleInfo

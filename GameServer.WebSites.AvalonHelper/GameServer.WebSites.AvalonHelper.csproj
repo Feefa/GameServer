@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="avalonhelper\Avalon\avalon.css" />
+    <Content Include="avalonhelper\Avalon\refresh.js" />
     <Content Include="avalonhelper\Avalon\roleinfo.js" />
     <Content Include="avalonhelper\Images\assassin_large.jpg" />
     <Content Include="avalonhelper\Images\assassin_small.jpg" />
@@ -90,7 +91,9 @@
     <Content Include="avalonhelper\Views\Master.html" />
     <Content Include="avalonhelper\Views\SetUp\GamesMaster.html" />
     <Content Include="avalonhelper\Views\SetUp\Player.html" />
+    <Content Include="avalonhelper\Views\SetUp\PlayerWaiting.html" />
     <Content Include="avalonhelper\Views\SetUp\RoleInfo.html" />
+    <Content Include="avalonhelper\Views\SetUp\RoleSecrets.html" />
     <Content Include="avalonhelper\Views\SetUp\RoleSelect.html" />
     <Content Include="config\AvalonHelperWebsite.xml">
       <SubType>Designer</SubType>
