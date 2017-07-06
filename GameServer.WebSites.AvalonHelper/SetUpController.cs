@@ -42,5 +42,15 @@ namespace GameServer.WebSites.AvalonHelper
             Request.ViewTemplateName = "Player";
             return Player();
         }
+
+        [HttpMethod("POST")]
+        [AuthorizedRole("GM_Admin")]
+        public AvalonHelperModel StartGame()
+        {
+            game.StartGame();
+
+            Request.ViewTemplateName = "GamesMaster";
+            return GamesMaster();
+        }
     }
 }

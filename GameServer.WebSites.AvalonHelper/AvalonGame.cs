@@ -127,7 +127,7 @@ namespace GameServer.WebSites.AvalonHelper
 
             if (gameStatus != GameStatuses.SettingUp)
             {
-                throw new AvalonHelperException("Attempted to start game when GameStatus != SettingUp.");
+                return "The game has already been started";
             }
 
             int playerCount;

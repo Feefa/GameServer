@@ -38,7 +38,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="Thingy.WebServerLite.Api">
+    <Reference Include="Thingy.WebServerLite.Api, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\assemblies\Thingy\Thingy.WebServerLite.Api.dll</HintPath>
     </Reference>
   </ItemGroup>
