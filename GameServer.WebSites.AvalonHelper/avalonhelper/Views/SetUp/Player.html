@@ -9,10 +9,10 @@
 {@Content
     {=Bootstrap.Container()
         {=Bootstrap.GridRow()
-            {=Bootstrap.GridCell(-1, -1, 4)
+            {=Bootstrap.GridCell(-1, -1, 6)
                 {#RoleInfo}
             }
-            {=Bootstrap.GridCell(-1, -1, 4)
+            {=Bootstrap.GridCell(-1, -1, 6)
                 {?model.CanSelectRole()
                     {#RoleSelect}
                 }
@@ -22,9 +22,6 @@
                 {?model.IsWaiting()
                     {#PlayerWaiting}
                 }
-            }
-            {=Bootstrap.GridCell(-1, -1, 4)
-                {#PlayerList}
             }
         }
     }

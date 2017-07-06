@@ -67,5 +67,10 @@ namespace GameServer.WebSites.AvalonHelper
         {
             return GameStatus == GameStatuses.EndScreen && (Roles != null);
         }
+
+        public bool CanShowPlayerList()
+        {
+            return GameStatus != GameStatuses.EndScreen || (Roles == null);
+        }
     }
 }

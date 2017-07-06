@@ -109,6 +109,9 @@
       <Name>GameServer.Api</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="refresh.bat" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy $(TargetPath) $(SolutionDir)GameServer\$(OutDir) /Y

@@ -33,3 +33,12 @@ div.role-card-button-container
 {
     margin-top : 4px;
 }
+
+.role-select h2
+{
+    margin : 0;
+    padding : 4px 8px;
+    background-color : black;
+    color : gold;
+    text-align : center;
+}

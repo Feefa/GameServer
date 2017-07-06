@@ -6,10 +6,16 @@
 {@Content
     {=Bootstrap.Container()
         {=Bootstrap.GridRow()
-            {=Bootstrap.GridCell(-1, -1, 4)
-                {#PlayerList}
+            {=Bootstrap.GridCell(-1, -1, 6)
+                {?model.CanShowPlayerList()
+                    {#PlayerList}
+                }
+                {?model.CanShowRoleList()
+                    <h2>Roles</h2>
+                    {#RoleList}
+                }
             }
-            {=Bootstrap.GridCell(-1, -1, 4)
+            {=Bootstrap.GridCell(-1, -1, 6)
                 <h2>{model.CanStartGameMessage}</h2>
                 {?model.CanStartGame()
                     {=Bootstrap.Form("POST", "StartGame")
@@ -25,12 +31,6 @@
                     {=Bootstrap.Form("POST", "ResetGame")
                         {=Bootstrap.Button("Reset The Game", "submit", "reset-game", "success", "large", true)}
                     }
-                }
-            }
-            {=Bootstrap.GridCell(-1, -1, 4)
-                <h2>Roles</h2>
-                {?model.CanShowRoleList()
-                    {#RoleList}
                 }
             }
         }
