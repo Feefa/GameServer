@@ -23,6 +23,8 @@ namespace GameServer.WebSites.AvalonHelper
 
         void ResetGame();
 
+        void RefreshSecrets();
+
         PlayerStatusModel[] GetPlayerList();
     }
 }

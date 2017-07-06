@@ -9,5 +9,7 @@ namespace GameServer.WebSites.AvalonHelper
     public class UserStatusModel
     {
         public int RoleId { get; set; }
+
+        public string[] Secrets { get; set; }
     }
 }

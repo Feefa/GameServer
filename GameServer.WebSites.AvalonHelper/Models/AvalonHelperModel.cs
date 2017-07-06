@@ -13,7 +13,7 @@ namespace GameServer.WebSites.AvalonHelper
         {
             GameStatus = game.GetGameStatus();
             UserStatus = game.GetUserStatus(request.User);
-            Players = game.GetPlayerList();
+            Players = game.GetPlayerList();            
             CanStartGameMessage = game.CanStartGame();
         }
 

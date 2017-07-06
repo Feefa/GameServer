@@ -30,14 +30,14 @@ namespace GameServer.Test
             this.baseGame = game;
             // Colin picks Merlin
             game.SelectRole(colin, 1);
-            // Tom picks Percival
+            // Tom picks Percival            
             game.SelectRole(tom, 2);
             // Rupert picks Loyal Servant of Arthur
             game.SelectRole(rupert, 5);
             // Katie picks Morgana
             game.SelectRole(katie, 9);
             // Alexander picks Assassin
-            game.SelectRole(alexander, 10);
+            game.SelectRole(alexander, 8);
         }
 
         public string CanStartGame()
@@ -78,6 +78,11 @@ namespace GameServer.Test
         public string StartGame()
         {
             return baseGame.StartGame();
+        }
+
+        public void RefreshSecrets()
+        {
+            baseGame.RefreshSecrets();
         }
     }
 }

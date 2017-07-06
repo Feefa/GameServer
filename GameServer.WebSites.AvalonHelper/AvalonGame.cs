@@ -14,6 +14,10 @@ namespace GameServer.WebSites.AvalonHelper
 
         private Mutex userRolesMutex = new Mutex(false, "bf801b8a-5cf2-4875-997a-c98c385c2ef3");
 
+        private IDictionary<string, string[]> userSecrets = new Dictionary<string, string[]>();
+
+        private Mutex userSecretsMutex = new Mutex(false, "807e37bc-35f2-4adc-b036-28b3c6875595");
+
         private GameStatuses gameStatus = GameStatuses.SettingUp;
 
         private Mutex gameStateMutex = new Mutex(false, "d1c47b61-4af3-4f45-a10e-b7bedc11a002");
@@ -22,13 +26,14 @@ namespace GameServer.WebSites.AvalonHelper
         {
             return new UserStatusModel
             {
-                RoleId = GetRoleIdForUser(user)
+                RoleId = GetRoleIdForUser(user),
+                Secrets = GetSecretsForUser(user)
             };
         }
 
         private int GetRoleIdForUser(IUser user)
         {
-            if(!user.Roles.Contains("Player"))
+            if (!user.Roles.Contains("Player"))
             {
                 return -1;
             }
@@ -60,6 +65,36 @@ namespace GameServer.WebSites.AvalonHelper
             }
 
             return roleId;
+        }
+
+        private string[] GetSecretsForUser(IUser user)
+        {
+            if (!user.Roles.Contains("Player"))
+            {
+                return new string[] { "n/a" };
+            }
+
+            string[] secrets;
+            userSecretsMutex.WaitOne();
+
+            try
+            {
+                if (userSecrets.ContainsKey(user.UserId))
+                {
+                    secrets = new string[userSecrets[user.UserId].Length];
+                    userSecrets[user.UserId].CopyTo(secrets, 0);
+                }
+                else
+                {
+                    secrets = new string[] { "None" };
+                }
+            }
+            finally
+            {
+                userSecretsMutex.ReleaseMutex();
+            }
+
+            return secrets;
         }
 
         public bool SelectRole(IUser user, int roleId)
@@ -165,6 +200,7 @@ namespace GameServer.WebSites.AvalonHelper
             if (string.IsNullOrEmpty(message))
             {
                 SetGameStatus(GameStatuses.InProgress);
+                RefreshSecrets();
             }
 
             return message;
@@ -219,7 +255,7 @@ namespace GameServer.WebSites.AvalonHelper
                 players = new PlayerStatusModel[userRoles.Keys.Count];
                 int index = 0;
 
-                foreach(string userId in userRoles.Keys)
+                foreach (string userId in userRoles.Keys)
                 {
                     int roleId = userRoles[userId] > 0 ? 1 : userRoles[userId];
 
@@ -241,6 +277,75 @@ namespace GameServer.WebSites.AvalonHelper
             }
 
             return players;
+        }
+
+        public void RefreshSecrets()
+        {
+            userRolesMutex.WaitOne();
+
+            try
+            {
+                userSecretsMutex.WaitOne();
+
+                try
+                {
+                    userSecrets.Clear();
+
+                    IList<string> seenByMerlin = new List<string>();
+                    IList<string> seenByPercival = new List<string>();
+                    IList<string> seenByMinions = new List<string>();
+
+                    foreach (string userId in userRoles.Keys)
+                    {
+                        if (userRoles[userId] > 7 && userRoles[userId] != 11)
+                        {
+                            if (userRoles[userId] != 8)
+                            {
+                                seenByMerlin.Add(string.Format("{0} is a minion of Mordred", userId));
+                            }
+                            seenByMinions.Add(string.Format("{0} is a minion of Mordred", userId));
+                        }
+
+                        if (userRoles[userId] == 1 || userRoles[userId] == 9)
+                        {
+                            if (userRoles.Values.Contains(9))
+                            {
+                                seenByPercival.Add(string.Format("{0} might be Merlin or Morgana", userId));
+                            }
+                            else
+                            {
+                                seenByPercival.Add(string.Format("{0} is Merlin", userId));
+                            }
+                        }
+
+                    }
+
+                    foreach (string userId in userRoles.Keys)
+                    {
+                        switch (userRoles[userId])
+                        {
+                            case (1): userSecrets[userId] = seenByMerlin.ToArray(); break;
+                            case (2): userSecrets[userId] = seenByPercival.ToArray(); break;
+                            default:
+
+                                if (userRoles[userId] > 7 && userRoles[userId] != 11)
+                                {
+                                    userSecrets[userId] = seenByMinions.ToArray();
+                                }
+
+                                break;
+                        }
+                    }
+                }
+                finally
+                {
+                    userSecretsMutex.ReleaseMutex();
+                }
+            }
+            finally
+            {
+                userRolesMutex.ReleaseMutex();
+            }
         }
     }
 }
