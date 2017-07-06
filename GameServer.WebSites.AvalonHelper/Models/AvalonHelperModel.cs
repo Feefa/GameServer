@@ -49,5 +49,15 @@ namespace GameServer.WebSites.AvalonHelper
         {
             return GameStatus == GameStatuses.SettingUp && string.IsNullOrEmpty(CanStartGameMessage);
         }
+
+        public bool CanEndGame()
+        {
+            return GameStatus == GameStatuses.InProgress;
+        }
+
+        public bool CanResetGame()
+        {
+            return GameStatus == GameStatuses.EndScreen;
+        }
     }
 }

@@ -15,6 +15,16 @@
                         {=Bootstrap.Button("Start The Game", "submit", "start-game", "success", "large", true)}
                     }
                 }
+                {?model.CanEndGame()
+                    {=Bootstrap.Form("POST", "EndGame")
+                        {=Bootstrap.Button("Finish The Game", "submit", "end-game", "danger", "large", true)}
+                    }
+                }
+                {?model.CanResetGame()
+                    {=Bootstrap.Form("POST", "ResetGame")
+                        {=Bootstrap.Button("Reset The Game", "submit", "reset-game", "success", "large", true)}
+                    }
+                }
             }
             {=Bootstrap.GridCell(-1, -1, 4)
                 <h2>Avalon!</h2>
