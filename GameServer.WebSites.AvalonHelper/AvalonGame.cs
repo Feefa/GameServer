@@ -12,11 +12,11 @@ namespace GameServer.WebSites.AvalonHelper
     {
         private IDictionary<string, int> userRoles = new Dictionary<string, int>();
 
-        private Mutex userRolesMutex = new Mutex();
+        private Mutex userRolesMutex = new Mutex(false, "bf801b8a-5cf2-4875-997a-c98c385c2ef3");
 
         private GameStatuses gameStatus = GameStatuses.SettingUp;
 
-        private Mutex gameStateMutex = new Mutex();
+        private Mutex gameStateMutex = new Mutex(false, "d1c47b61-4af3-4f45-a10e-b7bedc11a002");
 
         public UserStatusModel GetUserStatus(IUser user)
         {
