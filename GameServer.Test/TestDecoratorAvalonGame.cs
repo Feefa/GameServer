@@ -64,6 +64,7 @@ namespace GameServer.Test
         public void ResetGame()
         {
             baseGame.ResetGame();
+            addedPlayers = false;
         }
 
         public bool SelectRole(IUser user, int roleId)
@@ -91,6 +92,11 @@ namespace GameServer.Test
         public void RefreshSecrets()
         {
             baseGame.RefreshSecrets();
+        }
+
+        public RoleStatusModel[] GetRevealedRoles()
+        {
+            return baseGame.GetRevealedRoles();
         }
     }
 }

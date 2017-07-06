@@ -54,6 +54,7 @@
     <Compile Include="Models\AvalonHelperModel.cs" />
     <Compile Include="Models\PlayerStatusModel.cs" />
     <Compile Include="Models\UserStatusModel.cs" />
+    <Compile Include="Models\RoleStatusModel.cs" />
     <Compile Include="SetUpController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -94,6 +95,7 @@
     <Content Include="avalonhelper\Views\SetUp\Player.html" />
     <Content Include="avalonhelper\Views\SetUp\PlayerWaiting.html" />
     <Content Include="avalonhelper\Views\SetUp\RoleInfo.html" />
+    <Content Include="avalonhelper\Views\SetUp\RoleList.html" />
     <Content Include="avalonhelper\Views\SetUp\RoleSecrets.html" />
     <Content Include="avalonhelper\Views\SetUp\RoleSelect.html" />
     <Content Include="config\AvalonHelperWebsite.xml">

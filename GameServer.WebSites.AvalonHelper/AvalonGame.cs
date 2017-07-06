@@ -222,12 +222,12 @@ namespace GameServer.WebSites.AvalonHelper
         {
             GameStatuses gameStatus = GetGameStatus();
 
-            if (gameStatus == GameStatuses.InProgress)
+            if (gameStatus != GameStatuses.EndScreen)
             {
-                throw new AvalonHelperException("Attempted to end game when GameStatus = InProgress.");
+                throw new AvalonHelperException("Attempted to reset game when GameStatus != EndScreen.");
             }
 
-            SetGameStatus(GameStatuses.EndScreen);
+            SetGameStatus(GameStatuses.SettingUp);
             ClearUserRoles();
         }
 
@@ -346,6 +346,95 @@ namespace GameServer.WebSites.AvalonHelper
             {
                 userRolesMutex.ReleaseMutex();
             }
+        }
+
+        public RoleStatusModel[] GetRevealedRoles()
+        {
+            GameStatuses gameStatus = GetGameStatus();
+
+            if (gameStatus != GameStatuses.EndScreen)
+            {
+                return null;
+            }
+
+            IList<RoleStatusModel> roles = new List<RoleStatusModel>();
+            userRolesMutex.WaitOne();
+
+            try
+            {
+                foreach(string userId in userRoles.Keys)
+                {
+                    RoleStatusModel model = new RoleStatusModel { PlayerName = userId };
+
+                    switch(userRoles[userId])
+                    {
+                        case (1):
+                            model.RoleName = "Merlin";
+                            model.RoleImageFileName = "Images/merlin_small.jpg";
+                            break;
+                        case (2):
+                            model.RoleName = "Percival";
+                            model.RoleImageFileName = "Images/percival_small.jpg";
+                            break;
+                        case (3):
+                            model.RoleName = "Loyal Servant of Arthur";
+                            model.RoleImageFileName = "Images/servant1_small.jpg";
+                            break;
+                        case (4):
+                            model.RoleName = "Loyal Servant of Arthur";
+                            model.RoleImageFileName = "Images/servant2_small.jpg";
+                            break;
+                        case (5):
+                            model.RoleName = "Loyal Servant of Arthur";
+                            model.RoleImageFileName = "Images/servant3_small.jpg";
+                            break;
+                        case (6):
+                            model.RoleName = "Loyal Servant of Arthur";
+                            model.RoleImageFileName = "Images/servant4_small.jpg";
+                            break;
+                        case (7):
+                            model.RoleName = "Loyal Servant of Arthur";
+                            model.RoleImageFileName = "Images/servant5_small.jpg";
+                            break;
+                        case (8):
+                            model.RoleName = "Mordred";
+                            model.RoleImageFileName = "Images/mordred_small.jpg";
+                            break;
+                        case (9):
+                            model.RoleName = "Morgana";
+                            model.RoleImageFileName = "Images/morgana_small.jpg";
+                            break;
+                        case (10):
+                            model.RoleName = "Assassin";
+                            model.RoleImageFileName = "Images/assassin_small.jpg";
+                            break;
+                        case (11):
+                            model.RoleName = "Oberon";
+                            model.RoleImageFileName = "Images/oberon_small.jpg";
+                            break;
+                        case (12):
+                            model.RoleName = "Minion of Mordred";
+                            model.RoleImageFileName = "Images/minion1_small.jpg";
+                            break;
+                        case (13):
+                            model.RoleName = "Minion of Mordred";
+                            model.RoleImageFileName = "Images/minion2_small.jpg";
+                            break;
+                        case (14):
+                            model.RoleName = "Minion of Mordred";
+                            model.RoleImageFileName = "Images/minion3_small.jpg";
+                            break;
+                    }
+
+                    roles.Add(model);
+                }
+            }
+            finally
+            {
+                userRolesMutex.ReleaseMutex();
+            }
+
+            return roles.ToArray();
         }
     }
 }

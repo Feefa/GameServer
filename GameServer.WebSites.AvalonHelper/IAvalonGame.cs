@@ -26,5 +26,7 @@ namespace GameServer.WebSites.AvalonHelper
         void RefreshSecrets();
 
         PlayerStatusModel[] GetPlayerList();
+
+        RoleStatusModel[] GetRevealedRoles();
     }
 }

@@ -1,4 +1,5 @@
 ﻿{!PlayerList.html}
+{!RoleList.html}
 
 {@Title Avalon Games Master Page}
 
@@ -27,7 +28,10 @@
                 }
             }
             {=Bootstrap.GridCell(-1, -1, 4)
-                <h2>Avalon!</h2>
+                <h2>Roles</h2>
+                {?model.CanShowRoleList()
+                    {#RoleList}
+                }
             }
         }
     }

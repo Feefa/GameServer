@@ -15,6 +15,7 @@ namespace GameServer.WebSites.AvalonHelper
             UserStatus = game.GetUserStatus(request.User);
             Players = game.GetPlayerList();            
             CanStartGameMessage = game.CanStartGame();
+            Roles = game.GetRevealedRoles();
         }
 
         public GameStatuses GameStatus { get; set; }
@@ -22,6 +23,8 @@ namespace GameServer.WebSites.AvalonHelper
         public UserStatusModel UserStatus { get; set; }
 
         public PlayerStatusModel[] Players { get; set; }
+
+        public RoleStatusModel[] Roles { get; set; }
 
         public string CanStartGameMessage { get; set; }
 
@@ -58,6 +61,11 @@ namespace GameServer.WebSites.AvalonHelper
         public bool CanResetGame()
         {
             return GameStatus == GameStatuses.EndScreen;
+        }
+
+        public bool CanShowRoleList()
+        {
+            return GameStatus == GameStatuses.EndScreen && (Roles != null);
         }
     }
 }

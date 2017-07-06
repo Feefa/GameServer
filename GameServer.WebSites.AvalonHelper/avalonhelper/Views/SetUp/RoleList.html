@@ -1,0 +1,16 @@
+﻿{@RoleList
+    <table class="table">
+        <tbody>
+            {#RoleListItem Roles}
+        </tbody>
+    </table>
+}
+
+{@RoleListItem
+    <tr>
+        <td>
+            <img src="{model.RoleImageFileName}" />
+        </td>
+        <td><strong>{model.PlayerName}</strong><br/>{model.RoleName}</td>
+    </tr>
+}
