@@ -17,7 +17,7 @@ namespace GameServer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(CastleContainer.Container.Resolve<IMainForm>().GetForm());
+            Application.Run(Bootstrapper.Container.Resolve<IMainForm>().GetForm());
         }
     }
 }
